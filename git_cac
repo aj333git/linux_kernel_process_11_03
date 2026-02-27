@@ -1,0 +1,88 @@
+git init
+
+git add .
+git commit -m "Add runnable process inspector kernel module"
+
+ssh -T git@github.com
+
+git remote -v
+
+git branch -M main
+
+
+
+git remote remove origin 2>/dev/null
+
+git remote add origin git@github.com:aj333git/linux_kernel_process_11_03.git
+
+git remote -v
+
+
+ssh -T git@github.com
+
+git remote remove origin 2>/dev/null
+
+git remote add origin git@github.com:aj333git/linux_kernel_process_11_03.git
+
+
+git remote -v
+
+
+git branch -M main
+
+git push -u origin main
+
+gedit .gitignore
+# Kernel build artifacts
+*.o
+*.ko
+*.mod
+*.mod.c
+*.order
+Module.symvers
+modules.order
+
+# Temporary files
+*~
+*.swp
+
+
+git rm --cached *.o
+git rm --cached *.ko
+git rm --cached *.mod
+git rm --cached *.mod.c
+git rm --cached modules.order
+git rm --cached Module.symvers
+
+
+git add .gitignore
+
+git commit -m "Remove build artifacts and add .gitignore"
+
+git push
+
+sudo apt install git-filter-repo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rm -rf .git
+git init
+
+make clean
+
+ls
+
+
